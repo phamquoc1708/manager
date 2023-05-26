@@ -37,7 +37,7 @@ const Page = () => {
     onSubmit: async (values, helpers) => {
       try {
         await auth.signIn(values.email, values.password);
-        router.push("/");
+        router.push("/customers");
       } catch (err) {
         helpers.setStatus({ success: false });
         helpers.setErrors({ submit: err.message });
@@ -48,7 +48,7 @@ const Page = () => {
 
   const handleSkip = useCallback(() => {
     auth.skip();
-    router.push("/");
+    router.push("/customers");
   }, [auth, router]);
 
   return (
